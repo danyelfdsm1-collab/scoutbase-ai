@@ -107,7 +107,7 @@ export function AthleteDetailsDialog({
             <div className="grid gap-1.5">
               <Label>Categoria</Label>
               <Select
-                value={form.category || undefined}
+                value={form.category}
                 onValueChange={(v) => set("category", v as Category)}
               >
                 <SelectTrigger>
@@ -126,7 +126,7 @@ export function AthleteDetailsDialog({
           <div className="grid grid-cols-2 gap-3">
             <div className="grid gap-1.5">
               <Label>Pé dominante</Label>
-              <Select value={form.foot || undefined} onValueChange={(v) => set("foot", v as Foot)}>
+              <Select value={form.foot} onValueChange={(v) => set("foot", v as Foot)}>
                 <SelectTrigger>
                   <SelectValue placeholder="Selecione" />
                 </SelectTrigger>
