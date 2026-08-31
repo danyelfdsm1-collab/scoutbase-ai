@@ -156,3 +156,17 @@
     color: var(--color-foreground);
   }
 }
+
+@layer components {
+  .pitch-surface {
+    background:
+      repeating-linear-gradient(
+        180deg,
+        color-mix(in oklab, var(--color-pitch) 100%, white 0%) 0 6%,
+        color-mix(in oklab, var(--color-pitch) 92%, black 8%) 6% 12%
+      );
+  }
+  .pitch-line {
+    border-color: var(--color-line);
+  }
+}
