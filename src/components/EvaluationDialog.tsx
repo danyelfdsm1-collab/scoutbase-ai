@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useMutation } from "@tanstack/react-query";
 import { useServerFn } from "@tanstack/react-start";
-import { Brain, Loader2 } from "lucide-react";
+import { Brain, Loader2, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -84,10 +84,30 @@ export function EvaluationDialog({
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="max-h-[92vh] overflow-y-auto sm:max-w-lg">
         <DialogHeader>
-          <DialogTitle>Avaliação — {athlete.fullName}</DialogTitle>
-          <DialogDescription>
-            Notas de 0 a 10 por critério. Média geral: {overallAverage(form.scores).toFixed(1)}
-          </DialogDescription>
+          <div className="flex items-start justify-between gap-3 pr-6">
+            <div className="min-w-0">
+              <DialogTitle>Avaliação — {athlete.fullName}</DialogTitle>
+              <DialogDescription>
+                Notas de 0 a 10 por critério. Média geral: {overallAverage(form.scores).toFixed(1)}
+              </DialogDescription>
+            </div>
+            <Button
+              type="button"
+              variant="secondary"
+              size="sm"
+              className="shrink-0"
+              onClick={() => aiScores.mutate()}
+              disabled={aiScores.isPending}
+              title="Gerar pontuação com IA a partir da posição, categoria e observações"
+            >
+              {aiScores.isPending ? (
+                <Loader2 className="h-4 w-4 animate-spin" />
+              ) : (
+                <Sparkles className="h-4 w-4" />
+              )}
+              IA
+            </Button>
+          </div>
         </DialogHeader>
 
         <div className="space-y-5">
