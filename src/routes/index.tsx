@@ -1,6 +1,6 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { ClipboardList, IdCard } from "lucide-react";
+import { ClipboardList, IdCard, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -82,9 +82,18 @@ function Index() {
               Observação técnica do Sub-11 ao Sub-20 — toque em uma posição.
             </p>
           </div>
-          <span className="shrink-0 rounded-full bg-accent px-3 py-1 text-xs font-bold text-accent-foreground">
-            4-3-3
-          </span>
+          <div className="flex shrink-0 flex-col items-end gap-2">
+            <span className="rounded-full bg-accent px-3 py-1 text-xs font-bold text-accent-foreground">
+              4-3-3
+            </span>
+            <Link
+              to="/atletas"
+              className="flex items-center gap-1 rounded-full border bg-card px-3 py-1 text-xs font-semibold text-foreground"
+            >
+              <Users className="h-3.5 w-3.5" />
+              Painel
+            </Link>
+          </div>
         </header>
 
         <Pitch

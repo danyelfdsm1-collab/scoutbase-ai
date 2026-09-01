@@ -22,7 +22,7 @@ import {
   type Athlete,
   type Evaluation,
 } from "@/lib/scouting";
-import { getScoutingInsights } from "@/lib/scouting.functions";
+import { generateScores, getScoutingInsights } from "@/lib/scouting.functions";
 
 export function EvaluationDialog({
   open,
