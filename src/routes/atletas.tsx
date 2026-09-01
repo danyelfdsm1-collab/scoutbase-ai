@@ -114,7 +114,7 @@ function AthletesPanel() {
                         className="rounded bg-accent px-1.5 py-0.5 text-[10px] font-semibold text-accent-foreground"
                         title={g.title}
                       >
-                        {g.title.split(" ")[0].replace("/", "")}: {avg.toFixed(1)}
+                        {(g.title.split(" ")[0] ?? g.title).replace("/", "")}: {avg.toFixed(1)}
                       </span>
                     );
                   })}
