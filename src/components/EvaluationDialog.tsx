@@ -60,6 +60,23 @@ export function EvaluationDialog({
     onError: (err: Error) => toast.error(err.message),
   });
 
+  const scoreFn = useServerFn(generateScores);
+  const aiScores = useMutation({
+    mutationFn: () =>
+      scoreFn({
+        data: {
+          position: athlete.position || "Jogador de linha",
+          category: athlete.category || "Sub-15",
+          notes: form.notes || undefined,
+        },
+      }),
+    onSuccess: (res) => {
+      setForm((prev) => ({ ...prev, scores: { ...prev.scores, ...res.scores } }));
+      toast.success("Pontuação gerada pela IA — revise antes de salvar");
+    },
+    onError: (err: Error) => toast.error(err.message),
+  });
+
   const setScore = (key: string, value: number) =>
     setForm((prev) => ({ ...prev, scores: { ...prev.scores, [key]: value } }));
 
