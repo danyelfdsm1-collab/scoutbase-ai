@@ -234,8 +234,8 @@ function EvolutionPage() {
                           <Radar
                             name="Avaliação anterior"
                             dataKey="anterior"
-                            stroke=GRAY
-                            fill=GRAY
+                            stroke={GRAY}
+                            fill={GRAY}
                             fillOpacity={0.2}
                           />
                         )}
