@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { ClipboardList, FileText, IdCard, Users } from "lucide-react";
+import { ClipboardList, FileText, IdCard, TrendingUp, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -95,6 +95,13 @@ function Index() {
                 Painel
               </Link>
               <Link
+                to="/evolucao"
+                className="flex items-center gap-1 rounded-full border bg-card px-3 py-1 text-xs font-semibold text-foreground"
+              >
+                <TrendingUp className="h-3.5 w-3.5" />
+                Evolução
+              </Link>
+              <Link
                 to="/relatorios"
                 className="flex items-center gap-1 rounded-full border bg-card px-3 py-1 text-xs font-semibold text-foreground"
               >
@@ -181,7 +188,16 @@ function Index() {
             athlete={athlete}
             evaluation={evaluation}
             onSave={(next) => {
-              update(selected, { evaluation: next });
+              const prevEval = data?.evaluation;
+              const hasPrev =
+                prevEval && Object.keys(prevEval.scores).length > 0 && prevEval.updatedAt;
+              const history = [
+                ...(prevEval?.history ?? []),
+                ...(hasPrev
+                  ? [{ at: prevEval.updatedAt as string, scores: prevEval.scores }]
+                  : []),
+              ];
+              update(selected, { evaluation: { ...next, history } });
               setEvalOpen(false);
             }}
           />
