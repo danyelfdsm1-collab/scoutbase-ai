@@ -286,10 +286,11 @@ export async function exportDOCX(rows: ReportRow[], kind: ReportKind) {
     new TableCell({
       borders,
       width: { size: width, type: WidthType.DXA },
-      shading: fill ? { fill, type: ShadingType.CLEAR } : undefined,
+      ...(fill ? { shading: { fill, type: ShadingType.CLEAR } } : {}),
       margins: { top: 80, bottom: 80, left: 120, right: 120 },
       children: [new Paragraph({ children: [new TextRun({ text, bold })] })],
     });
+
 
   const children: (InstanceType<typeof Paragraph> | InstanceType<typeof Table>)[] = [
     new Paragraph({ heading: HeadingLevel.HEADING_1, children: [new TextRun(reportTitle(kind))] }),
