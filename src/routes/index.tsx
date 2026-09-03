@@ -95,6 +95,13 @@ function Index() {
                 Painel
               </Link>
               <Link
+                to="/evolucao"
+                className="flex items-center gap-1 rounded-full border bg-card px-3 py-1 text-xs font-semibold text-foreground"
+              >
+                <TrendingUp className="h-3.5 w-3.5" />
+                Evolução
+              </Link>
+              <Link
                 to="/relatorios"
                 className="flex items-center gap-1 rounded-full border bg-card px-3 py-1 text-xs font-semibold text-foreground"
               >
