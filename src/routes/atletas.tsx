@@ -55,7 +55,7 @@ function AthletesPanel() {
           >
             <ArrowLeft className="h-4 w-4" />
           </Link>
-          <div className="min-w-0">
+          <div className="min-w-0 flex-1">
             <h1 className="font-display text-3xl tracking-wide text-primary">
               Painel de Atletas
             </h1>
@@ -65,7 +65,15 @@ function AthletesPanel() {
                 : "Nenhum atleta cadastrado ainda."}
             </p>
           </div>
+          <Link
+            to="/relatorios"
+            className="flex shrink-0 items-center gap-1 rounded-full border bg-card px-3 py-1.5 text-xs font-semibold"
+          >
+            <FileText className="h-3.5 w-3.5" />
+            Relatórios
+          </Link>
         </header>
+
 
         {!ranked.length && (
           <div className="rounded-xl border border-dashed bg-card p-8 text-center text-sm text-muted-foreground">
