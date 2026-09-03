@@ -113,10 +113,17 @@ export interface Athlete {
   photo?: string;
 }
 
+export interface EvaluationSnapshot {
+  at: string;
+  scores: Record<string, number>;
+}
+
 export interface Evaluation {
   scores: Record<string, number>;
   notes: string;
   updatedAt?: string;
+  /** histórico de avaliações anteriores para acompanhamento da evolução */
+  history?: EvaluationSnapshot[];
 }
 
 export interface SlotData {

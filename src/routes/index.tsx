@@ -181,7 +181,16 @@ function Index() {
             athlete={athlete}
             evaluation={evaluation}
             onSave={(next) => {
-              update(selected, { evaluation: next });
+              const prevEval = data?.evaluation;
+              const hasPrev =
+                prevEval && Object.keys(prevEval.scores).length > 0 && prevEval.updatedAt;
+              const history = [
+                ...(prevEval?.history ?? []),
+                ...(hasPrev
+                  ? [{ at: prevEval.updatedAt as string, scores: prevEval.scores }]
+                  : []),
+              ];
+              update(selected, { evaluation: { ...next, history } });
               setEvalOpen(false);
             }}
           />
