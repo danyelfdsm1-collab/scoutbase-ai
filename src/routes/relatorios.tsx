@@ -33,7 +33,7 @@ export const Route = createFileRoute("/relatorios")({
       { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
-  component: ReportsPage;
+  component: ReportsPage,
 });
 
 function ReportsPage() {
