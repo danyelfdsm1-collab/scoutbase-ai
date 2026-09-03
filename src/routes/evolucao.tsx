@@ -45,7 +45,7 @@ export const Route = createFileRoute("/evolucao")({
 });
 
 const GREEN = "#16a34a";
-const GRAY = "#94a3b8";
+const GRAY = GRAY;
 
 function EvolutionPage() {
   const [board, setBoard] = useState<Board>({});
@@ -234,16 +234,16 @@ function EvolutionPage() {
                           <Radar
                             name="Avaliação anterior"
                             dataKey="anterior"
-                            stroke="#94a3b8"
-                            fill="#94a3b8"
+                            stroke=GRAY
+                            fill=GRAY
                             fillOpacity={0.2}
                           />
                         )}
                         <Radar
                           name="Avaliação atual"
                           dataKey="atual"
-                          stroke={GROUP_COLORS[0]}
-                          fill={GROUP_COLORS[0]}
+                          stroke={GREEN}
+                          fill={GREEN}
                           fillOpacity={0.35}
                         />
                         <Legend wrapperStyle={{ fontSize: 12 }} />
@@ -273,7 +273,7 @@ function EvolutionPage() {
                           name="Média geral"
                           type="monotone"
                           dataKey="media"
-                          stroke={GROUP_COLORS[0]}
+                          stroke={GREEN}
                           strokeWidth={2.5}
                           dot={{ r: 4 }}
                         />
