@@ -44,7 +44,8 @@ export const Route = createFileRoute("/evolucao")({
   component: EvolutionPage,
 });
 
-const GROUP_COLORS = ["#16a34a", "#d4af37", "#2563eb", "#dc2626"];
+const GREEN = "#16a34a";
+const GRAY = "#94a3b8";
 
 function EvolutionPage() {
   const [board, setBoard] = useState<Board>({});
