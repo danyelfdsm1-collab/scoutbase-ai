@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { ArrowLeft, Shirt, User } from "lucide-react";
+import { ArrowLeft, FileText, Shirt, User } from "lucide-react";
 import {
   CRITERIA,
   SLOTS,
