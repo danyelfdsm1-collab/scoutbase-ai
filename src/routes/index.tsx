@@ -86,14 +86,24 @@ function Index() {
             <span className="rounded-full bg-accent px-3 py-1 text-xs font-bold text-accent-foreground">
               4-3-3
             </span>
-            <Link
-              to="/atletas"
-              className="flex items-center gap-1 rounded-full border bg-card px-3 py-1 text-xs font-semibold text-foreground"
-            >
-              <Users className="h-3.5 w-3.5" />
-              Painel
-            </Link>
+            <div className="flex gap-1.5">
+              <Link
+                to="/atletas"
+                className="flex items-center gap-1 rounded-full border bg-card px-3 py-1 text-xs font-semibold text-foreground"
+              >
+                <Users className="h-3.5 w-3.5" />
+                Painel
+              </Link>
+              <Link
+                to="/relatorios"
+                className="flex items-center gap-1 rounded-full border bg-card px-3 py-1 text-xs font-semibold text-foreground"
+              >
+                <FileText className="h-3.5 w-3.5" />
+                Relatórios
+              </Link>
+            </div>
           </div>
+
         </header>
 
         <Pitch
