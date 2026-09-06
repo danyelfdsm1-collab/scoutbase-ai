@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { ArrowLeft, FileText, Shirt, User } from "lucide-react";
+import { ArrowLeft, FileText, Shirt, TrendingUp, User } from "lucide-react";
 import {
   CRITERIA,
   SLOTS,
@@ -65,13 +65,22 @@ function AthletesPanel() {
                 : "Nenhum atleta cadastrado ainda."}
             </p>
           </div>
-          <Link
-            to="/relatorios"
-            className="flex shrink-0 items-center gap-1 rounded-full border bg-card px-3 py-1.5 text-xs font-semibold"
-          >
-            <FileText className="h-3.5 w-3.5" />
-            Relatórios
-          </Link>
+          <div className="flex shrink-0 flex-col items-end gap-1.5">
+            <Link
+              to="/evolucao"
+              className="flex items-center gap-1 rounded-full border bg-card px-3 py-1.5 text-xs font-semibold"
+            >
+              <TrendingUp className="h-3.5 w-3.5" />
+              Evolução
+            </Link>
+            <Link
+              to="/relatorios"
+              className="flex items-center gap-1 rounded-full border bg-card px-3 py-1.5 text-xs font-semibold"
+            >
+              <FileText className="h-3.5 w-3.5" />
+              Relatórios
+            </Link>
+          </div>
         </header>
 
 
