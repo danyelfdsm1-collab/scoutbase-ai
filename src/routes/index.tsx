@@ -102,12 +102,20 @@ function Index() {
                 Evolução
               </Link>
               <Link
+                to="/video"
+                className="flex items-center gap-1 rounded-full border bg-card px-3 py-1 text-xs font-semibold text-foreground"
+              >
+                <Video className="h-3.5 w-3.5" />
+                Vídeo
+              </Link>
+              <Link
                 to="/relatorios"
                 className="flex items-center gap-1 rounded-full border bg-card px-3 py-1 text-xs font-semibold text-foreground"
               >
                 <FileText className="h-3.5 w-3.5" />
                 Relatórios
               </Link>
+
             </div>
           </div>
 

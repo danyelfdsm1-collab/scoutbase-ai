@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AtletasRouteImport } from './routes/atletas'
 import { Route as EvolucaoRouteImport } from './routes/evolucao'
 import { Route as RelatoriosRouteImport } from './routes/relatorios'
+import { Route as VideoRouteImport } from './routes/video'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -34,18 +35,25 @@ const RelatoriosRoute = RelatoriosRouteImport.update({
   path: '/relatorios',
   getParentRoute: () => rootRouteImport,
 } as any)
+const VideoRoute = VideoRouteImport.update({
+  id: '/video',
+  path: '/video',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/atletas': typeof AtletasRoute
   '/evolucao': typeof EvolucaoRoute
   '/relatorios': typeof RelatoriosRoute
+  '/video': typeof VideoRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/atletas': typeof AtletasRoute
   '/evolucao': typeof EvolucaoRoute
   '/relatorios': typeof RelatoriosRoute
+  '/video': typeof VideoRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -53,13 +61,14 @@ export interface FileRoutesById {
   '/atletas': typeof AtletasRoute
   '/evolucao': typeof EvolucaoRoute
   '/relatorios': typeof RelatoriosRoute
+  '/video': typeof VideoRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/atletas' | '/evolucao' | '/relatorios'
+  fullPaths: '/' | '/atletas' | '/evolucao' | '/relatorios' | '/video'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/atletas' | '/evolucao' | '/relatorios'
-  id: '__root__' | '/' | '/atletas' | '/evolucao' | '/relatorios'
+  to: '/' | '/atletas' | '/evolucao' | '/relatorios' | '/video'
+  id: '__root__' | '/' | '/atletas' | '/evolucao' | '/relatorios' | '/video'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -67,6 +76,7 @@ export interface RootRouteChildren {
   AtletasRoute: typeof AtletasRoute
   EvolucaoRoute: typeof EvolucaoRoute
   RelatoriosRoute: typeof RelatoriosRoute
+  VideoRoute: typeof VideoRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -99,6 +109,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RelatoriosRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/video': {
+      id: '/video'
+      path: '/video'
+      fullPath: '/video'
+      preLoaderRoute: typeof VideoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -107,6 +124,7 @@ const rootRouteChildren: RootRouteChildren = {
   AtletasRoute: AtletasRoute,
   EvolucaoRoute: EvolucaoRoute,
   RelatoriosRoute: RelatoriosRoute,
+  VideoRoute: VideoRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
