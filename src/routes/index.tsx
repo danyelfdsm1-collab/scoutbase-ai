@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { ClipboardList, FileText, IdCard, TrendingUp, Users } from "lucide-react";
+import { ClipboardList, FileText, IdCard, TrendingUp, Users, Video } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
