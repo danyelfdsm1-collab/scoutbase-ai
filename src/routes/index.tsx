@@ -55,8 +55,13 @@ function Index() {
   const [selected, setSelected] = useState<PositionKey | null>(null);
   const [detailsOpen, setDetailsOpen] = useState(false);
   const [evalOpen, setEvalOpen] = useState(false);
+  const [formation, setFormation] = useState<Formation>(DEFAULT_FORMATION);
 
-  useEffect(() => setBoard(loadBoard()), []);
+  useEffect(() => {
+    setBoard(loadBoard());
+    setFormation(loadFormation());
+  }, []);
+
 
   const update = (key: PositionKey, patch: Partial<{ athlete: Athlete; evaluation: Evaluation }>) =>
     setBoard((prev) => {
