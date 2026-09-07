@@ -1,11 +1,20 @@
 import { UserPlus } from "lucide-react";
-import { SLOTS, overallAverage, type Board, type PositionKey } from "@/lib/scouting";
+import {
+  FORMATIONS,
+  DEFAULT_FORMATION,
+  overallAverage,
+  type Board,
+  type Formation,
+  type PositionKey,
+} from "@/lib/scouting";
 
 export function Pitch({
   board,
+  formation = DEFAULT_FORMATION,
   onSelect,
 }: {
   board: Board;
+  formation?: Formation;
   onSelect: (key: PositionKey) => void;
 }) {
   return (
@@ -19,7 +28,8 @@ export function Pitch({
       <div className="pointer-events-none absolute top-3 left-1/2 h-[14%] w-[54%] -translate-x-1/2 border-2 border-t-0 pitch-line" />
       <div className="pointer-events-none absolute top-3 left-1/2 h-[6%] w-[28%] -translate-x-1/2 border-2 border-t-0 pitch-line" />
 
-      {SLOTS.map((slot) => {
+      {(FORMATIONS[formation] ?? FORMATIONS[DEFAULT_FORMATION]).map((slot) => {
+
         const data = board[slot.key];
         const filled = Boolean(data?.athlete.fullName);
         const media = data ? overallAverage(data.evaluation.scores) : 0;
