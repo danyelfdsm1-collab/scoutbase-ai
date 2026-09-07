@@ -114,7 +114,7 @@ function Index() {
               </select>
             </label>
 
-            <div className="flex gap-1.5">
+            <div className="flex flex-wrap gap-1.5">
               <Link
                 to="/atletas"
                 className="flex items-center gap-1 rounded-full border bg-card px-3 py-1 text-xs font-semibold text-foreground"
