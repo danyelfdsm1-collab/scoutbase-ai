@@ -129,10 +129,12 @@ function Index() {
 
         <Pitch
           board={board}
+          formation={formation}
           onSelect={(key) => {
             setSelected(key);
           }}
         />
+
 
         <p className="mt-4 text-center text-xs text-muted-foreground">
           Os dados ficam salvos neste dispositivo.
