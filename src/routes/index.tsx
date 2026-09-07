@@ -13,16 +13,22 @@ import { Pitch } from "@/components/Pitch";
 import { AthleteDetailsDialog } from "@/components/AthleteDetailsDialog";
 import { EvaluationDialog } from "@/components/EvaluationDialog";
 import {
+  FORMATION_LIST,
+  DEFAULT_FORMATION,
   SLOTS,
   emptyAthlete,
   emptyEvaluation,
   loadBoard,
+  loadFormation,
   saveBoard,
+  saveFormation,
   type Athlete,
   type Board,
   type Evaluation,
+  type Formation,
   type PositionKey,
 } from "@/lib/scouting";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
