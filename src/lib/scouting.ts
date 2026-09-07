@@ -54,7 +54,7 @@ const slot = (key: PositionKey, x: number, y: number, name?: string): SlotDef =>
 
 export const FORMATIONS = {
   "4-3-3": [
-    slot("GOL", 50, 90),
+    slot("GOL", 50, 92),
     slot("LD", 84, 72),
     slot("ZAD", 62, 76),
     slot("ZAE", 38, 76),
@@ -67,7 +67,7 @@ export const FORMATIONS = {
     slot("PE", 20, 24),
   ],
   "4-4-2": [
-    slot("GOL", 50, 90),
+    slot("GOL", 50, 92),
     slot("LD", 84, 72),
     slot("ZAD", 62, 76),
     slot("ZAE", 38, 76),
@@ -80,7 +80,7 @@ export const FORMATIONS = {
     slot("ATA2", 38, 17),
   ],
   "4-5-1": [
-    slot("GOL", 50, 90),
+    slot("GOL", 50, 92),
     slot("LD", 86, 72),
     slot("ZAD", 62, 76),
     slot("ZAE", 38, 76),
@@ -93,7 +93,7 @@ export const FORMATIONS = {
     slot("ATA", 50, 16),
   ],
   "4-3-2-1": [
-    slot("GOL", 50, 90),
+    slot("GOL", 50, 92),
     slot("LD", 84, 72),
     slot("ZAD", 62, 76),
     slot("ZAE", 38, 76),
@@ -106,7 +106,7 @@ export const FORMATIONS = {
     slot("ATA", 50, 15),
   ],
   "4-1-3-2": [
-    slot("GOL", 50, 90),
+    slot("GOL", 50, 92),
     slot("LD", 84, 72),
     slot("ZAD", 62, 76),
     slot("ZAE", 38, 76),
@@ -119,10 +119,10 @@ export const FORMATIONS = {
     slot("ATA2", 38, 17),
   ],
   "5-4-1": [
-    slot("GOL", 50, 90),
+    slot("GOL", 50, 92),
     slot("LD", 88, 70),
     slot("ZAD", 68, 78),
-    slot("ZAC", 50, 80),
+    slot("ZAC", 50, 77),
     slot("ZAE", 32, 78),
     slot("LE", 12, 70),
     slot("PD", 82, 48),
@@ -132,7 +132,7 @@ export const FORMATIONS = {
     slot("ATA", 50, 16),
   ],
   "4-1-2-1-2": [
-    slot("GOL", 50, 90),
+    slot("GOL", 50, 92),
     slot("LD", 84, 72),
     slot("ZAD", 62, 76),
     slot("ZAE", 38, 76),
@@ -145,9 +145,9 @@ export const FORMATIONS = {
     slot("ATA2", 38, 16),
   ],
   "3-5-2": [
-    slot("GOL", 50, 90),
+    slot("GOL", 50, 92),
     slot("ZAD", 68, 78),
-    slot("ZAC", 50, 80),
+    slot("ZAC", 50, 77),
     slot("ZAE", 32, 78),
     slot("LD", 88, 55),
     slot("MC", 66, 52),
@@ -158,10 +158,10 @@ export const FORMATIONS = {
     slot("ATA2", 38, 17),
   ],
   "5-3-2": [
-    slot("GOL", 50, 90),
+    slot("GOL", 50, 92),
     slot("LD", 88, 70),
     slot("ZAD", 68, 78),
-    slot("ZAC", 50, 80),
+    slot("ZAC", 50, 77),
     slot("ZAE", 32, 78),
     slot("LE", 12, 70),
     slot("VOL", 50, 57),
@@ -171,7 +171,7 @@ export const FORMATIONS = {
     slot("ATA2", 38, 17),
   ],
   "4-2-3-1": [
-    slot("GOL", 50, 90),
+    slot("GOL", 50, 92),
     slot("LD", 84, 72),
     slot("ZAD", 62, 76),
     slot("ZAE", 38, 76),
@@ -184,9 +184,9 @@ export const FORMATIONS = {
     slot("ATA", 50, 15),
   ],
   "3-4-3": [
-    slot("GOL", 50, 90),
+    slot("GOL", 50, 92),
     slot("ZAD", 68, 78),
-    slot("ZAC", 50, 80),
+    slot("ZAC", 50, 77),
     slot("ZAE", 32, 78),
     slot("LD", 86, 55),
     slot("MC", 62, 52),
@@ -197,9 +197,9 @@ export const FORMATIONS = {
     slot("PE", 20, 20),
   ],
   "3-2-4-1": [
-    slot("GOL", 50, 90),
+    slot("GOL", 50, 92),
     slot("ZAD", 68, 78),
-    slot("ZAC", 50, 80),
+    slot("ZAC", 50, 77),
     slot("ZAE", 32, 78),
     slot("VOL", 62, 62),
     slot("VOL2", 38, 62),
@@ -210,7 +210,7 @@ export const FORMATIONS = {
     slot("ATA", 50, 15),
   ],
   "4-2-4": [
-    slot("GOL", 50, 90),
+    slot("GOL", 50, 92),
     slot("LD", 84, 72),
     slot("ZAD", 62, 76),
     slot("ZAE", 38, 76),
