@@ -94,9 +94,26 @@ function Index() {
             </p>
           </div>
           <div className="flex shrink-0 flex-col items-end gap-2">
-            <span className="rounded-full bg-accent px-3 py-1 text-xs font-bold text-accent-foreground">
-              4-3-3
-            </span>
+            <label className="flex items-center gap-1.5 rounded-full bg-accent px-3 py-1 text-xs font-bold text-accent-foreground">
+              <span className="sr-only">Formação tática</span>
+              <select
+                aria-label="Formação tática"
+                value={formation}
+                onChange={(e) => {
+                  const next = e.target.value as Formation;
+                  setFormation(next);
+                  saveFormation(next);
+                }}
+                className="bg-transparent font-bold text-accent-foreground outline-none"
+              >
+                {FORMATION_LIST.map((f) => (
+                  <option key={f} value={f} className="text-foreground">
+                    {f}
+                  </option>
+                ))}
+              </select>
+            </label>
+
             <div className="flex gap-1.5">
               <Link
                 to="/atletas"
