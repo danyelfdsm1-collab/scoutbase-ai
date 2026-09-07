@@ -370,3 +370,16 @@ export function saveBoard(board: Board) {
   if (typeof window === "undefined") return;
   window.localStorage.setItem(STORAGE_KEY, JSON.stringify(board));
 }
+
+const FORMATION_KEY = "scout-base-formation-v1";
+
+export function loadFormation(): Formation {
+  if (typeof window === "undefined") return DEFAULT_FORMATION;
+  const value = window.localStorage.getItem(FORMATION_KEY) as Formation | null;
+  return value && value in FORMATIONS ? value : DEFAULT_FORMATION;
+}
+
+export function saveFormation(formation: Formation) {
+  if (typeof window === "undefined") return;
+  window.localStorage.setItem(FORMATION_KEY, formation);
+}
