@@ -14,16 +14,183 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      athlete_evaluations: {
+        Row: {
+          athlete_id: string
+          author_id: string | null
+          created_at: string
+          id: string
+          scores: Json
+          source: string
+          summary: string | null
+        }
+        Insert: {
+          athlete_id: string
+          author_id?: string | null
+          created_at?: string
+          id?: string
+          scores?: Json
+          source?: string
+          summary?: string | null
+        }
+        Update: {
+          athlete_id?: string
+          author_id?: string | null
+          created_at?: string
+          id?: string
+          scores?: Json
+          source?: string
+          summary?: string | null
+        }
+        Relationships: []
+      }
+      athlete_videos: {
+        Row: {
+          athlete_id: string
+          competition: string | null
+          created_at: string
+          description: string | null
+          duration_seconds: number | null
+          id: string
+          play_type: string | null
+          played_on: string | null
+          position: string | null
+          size_bytes: number | null
+          storage_path: string
+          title: string
+        }
+        Insert: {
+          athlete_id: string
+          competition?: string | null
+          created_at?: string
+          description?: string | null
+          duration_seconds?: number | null
+          id?: string
+          play_type?: string | null
+          played_on?: string | null
+          position?: string | null
+          size_bytes?: number | null
+          storage_path: string
+          title: string
+        }
+        Update: {
+          athlete_id?: string
+          competition?: string | null
+          created_at?: string
+          description?: string | null
+          duration_seconds?: number | null
+          id?: string
+          play_type?: string | null
+          played_on?: string | null
+          position?: string | null
+          size_bytes?: number | null
+          storage_path?: string
+          title?: string
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          account_type: Database["public"]["Enums"]["app_role"]
+          bio: string | null
+          birth_date: string | null
+          category: string | null
+          city: string | null
+          created_at: string
+          foot: string | null
+          full_name: string
+          height_cm: number | null
+          id: string
+          org_name: string | null
+          phone: string | null
+          photo_url: string | null
+          position_primary: string | null
+          position_secondary: string | null
+          state: string | null
+          updated_at: string
+          username: string
+          weight_kg: number | null
+        }
+        Insert: {
+          account_type?: Database["public"]["Enums"]["app_role"]
+          bio?: string | null
+          birth_date?: string | null
+          category?: string | null
+          city?: string | null
+          created_at?: string
+          foot?: string | null
+          full_name?: string
+          height_cm?: number | null
+          id: string
+          org_name?: string | null
+          phone?: string | null
+          photo_url?: string | null
+          position_primary?: string | null
+          position_secondary?: string | null
+          state?: string | null
+          updated_at?: string
+          username: string
+          weight_kg?: number | null
+        }
+        Update: {
+          account_type?: Database["public"]["Enums"]["app_role"]
+          bio?: string | null
+          birth_date?: string | null
+          category?: string | null
+          city?: string | null
+          created_at?: string
+          foot?: string | null
+          full_name?: string
+          height_cm?: number | null
+          id?: string
+          org_name?: string | null
+          phone?: string | null
+          photo_url?: string | null
+          position_primary?: string | null
+          position_secondary?: string | null
+          state?: string | null
+          updated_at?: string
+          username?: string
+          weight_kg?: number | null
+        }
+        Relationships: []
+      }
+      user_roles: {
+        Row: {
+          created_at: string
+          id: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          role?: Database["public"]["Enums"]["app_role"]
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      has_role: {
+        Args: {
+          _role: Database["public"]["Enums"]["app_role"]
+          _user_id: string
+        }
+        Returns: boolean
+      }
     }
     Enums: {
-      [_ in never]: never
+      app_role: "treinador" | "clube" | "atleta"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +317,8 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      app_role: ["treinador", "clube", "atleta"],
+    },
   },
 } as const
