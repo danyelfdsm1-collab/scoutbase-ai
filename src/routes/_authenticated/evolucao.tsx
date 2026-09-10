@@ -25,7 +25,7 @@ import {
   type Board,
 } from "@/lib/scouting";
 
-export const Route = createFileRoute("/evolucao")({
+export const Route = createFileRoute("/_authenticated/evolucao")({
   head: () => ({
     meta: [
       { title: "Evolução dos atletas — Scout Base" },
@@ -114,7 +114,7 @@ function EvolutionPage() {
       <div className="mx-auto max-w-2xl">
         <header className="mb-5 flex items-center gap-3">
           <Link
-            to="/"
+            to="/campo"
             className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border bg-card text-muted-foreground"
             aria-label="Voltar ao campo"
           >

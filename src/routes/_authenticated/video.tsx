@@ -19,7 +19,7 @@ import {
 
 const MAX_BYTES = 15 * 1024 * 1024;
 
-export const Route = createFileRoute("/video")({
+export const Route = createFileRoute("/_authenticated/video")({
   head: () => ({
     meta: [
       { title: "Avaliação por vídeo — Scout Base" },
@@ -150,7 +150,7 @@ function VideoScreen() {
       <div className="mx-auto max-w-2xl">
         <header className="mb-5 flex items-center gap-3">
           <Link
-            to="/"
+            to="/campo"
             className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border bg-card text-muted-foreground"
             aria-label="Voltar ao campo"
           >

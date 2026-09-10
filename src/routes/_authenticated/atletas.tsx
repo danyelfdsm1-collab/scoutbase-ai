@@ -10,7 +10,7 @@ import {
   type Board,
 } from "@/lib/scouting";
 
-export const Route = createFileRoute("/atletas")({
+export const Route = createFileRoute("/_authenticated/atletas")({
   head: () => ({
     meta: [
       { title: "Painel de atletas — Scout Base" },
@@ -49,7 +49,7 @@ function AthletesPanel() {
       <div className="mx-auto max-w-2xl">
         <header className="mb-5 flex items-center gap-3">
           <Link
-            to="/"
+            to="/campo"
             className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border bg-card text-muted-foreground"
             aria-label="Voltar ao campo"
           >

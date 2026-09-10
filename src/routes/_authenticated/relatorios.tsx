@@ -14,7 +14,7 @@ import {
 } from "@/lib/reports";
 import { Button } from "@/components/ui/button";
 
-export const Route = createFileRoute("/relatorios")({
+export const Route = createFileRoute("/_authenticated/relatorios")({
   head: () => ({
     meta: [
       { title: "Relatórios de avaliação — Scout Base" },
@@ -67,7 +67,7 @@ function ReportsPage() {
       <div className="mx-auto max-w-2xl">
         <header className="mb-5 flex items-center gap-3">
           <Link
-            to="/"
+            to="/campo"
             className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border bg-card text-muted-foreground"
             aria-label="Voltar ao campo"
           >
