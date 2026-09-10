@@ -30,7 +30,7 @@ import {
 } from "@/lib/scouting";
 
 
-export const Route = createFileRoute("/")({
+export const Route = createFileRoute("/_authenticated/campo")({
   head: () => ({
     meta: [
       { title: "Scout Base — Avaliação de atletas Sub-11 ao Sub-20" },

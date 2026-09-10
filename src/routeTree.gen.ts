@@ -10,73 +10,91 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as AtletasRouteImport } from './routes/atletas'
-import { Route as EvolucaoRouteImport } from './routes/evolucao'
-import { Route as RelatoriosRouteImport } from './routes/relatorios'
-import { Route as VideoRouteImport } from './routes/video'
+import { Route as AuthenticatedAtletasRouteImport } from './routes/_authenticated/atletas'
+import { Route as AuthenticatedCampoRouteImport } from './routes/_authenticated/campo'
+import { Route as AuthenticatedEvolucaoRouteImport } from './routes/_authenticated/evolucao'
+import { Route as AuthenticatedRelatoriosRouteImport } from './routes/_authenticated/relatorios'
+import { Route as AuthenticatedVideoRouteImport } from './routes/_authenticated/video'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AtletasRoute = AtletasRouteImport.update({
-  id: '/atletas',
+const AuthenticatedAtletasRoute = AuthenticatedAtletasRouteImport.update({
+  id: '/_authenticated/atletas',
   path: '/atletas',
   getParentRoute: () => rootRouteImport,
 } as any)
-const EvolucaoRoute = EvolucaoRouteImport.update({
-  id: '/evolucao',
+const AuthenticatedCampoRoute = AuthenticatedCampoRouteImport.update({
+  id: '/_authenticated/campo',
+  path: '/campo',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthenticatedEvolucaoRoute = AuthenticatedEvolucaoRouteImport.update({
+  id: '/_authenticated/evolucao',
   path: '/evolucao',
   getParentRoute: () => rootRouteImport,
 } as any)
-const RelatoriosRoute = RelatoriosRouteImport.update({
-  id: '/relatorios',
+const AuthenticatedRelatoriosRoute = AuthenticatedRelatoriosRouteImport.update({
+  id: '/_authenticated/relatorios',
   path: '/relatorios',
   getParentRoute: () => rootRouteImport,
 } as any)
-const VideoRoute = VideoRouteImport.update({
-  id: '/video',
+const AuthenticatedVideoRoute = AuthenticatedVideoRouteImport.update({
+  id: '/_authenticated/video',
   path: '/video',
   getParentRoute: () => rootRouteImport,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/atletas': typeof AtletasRoute
-  '/evolucao': typeof EvolucaoRoute
-  '/relatorios': typeof RelatoriosRoute
-  '/video': typeof VideoRoute
+  '/atletas': typeof AuthenticatedAtletasRoute
+  '/campo': typeof AuthenticatedCampoRoute
+  '/evolucao': typeof AuthenticatedEvolucaoRoute
+  '/relatorios': typeof AuthenticatedRelatoriosRoute
+  '/video': typeof AuthenticatedVideoRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/atletas': typeof AtletasRoute
-  '/evolucao': typeof EvolucaoRoute
-  '/relatorios': typeof RelatoriosRoute
-  '/video': typeof VideoRoute
+  '/atletas': typeof AuthenticatedAtletasRoute
+  '/campo': typeof AuthenticatedCampoRoute
+  '/evolucao': typeof AuthenticatedEvolucaoRoute
+  '/relatorios': typeof AuthenticatedRelatoriosRoute
+  '/video': typeof AuthenticatedVideoRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/atletas': typeof AtletasRoute
-  '/evolucao': typeof EvolucaoRoute
-  '/relatorios': typeof RelatoriosRoute
-  '/video': typeof VideoRoute
+  '/_authenticated/atletas': typeof AuthenticatedAtletasRoute
+  '/_authenticated/campo': typeof AuthenticatedCampoRoute
+  '/_authenticated/evolucao': typeof AuthenticatedEvolucaoRoute
+  '/_authenticated/relatorios': typeof AuthenticatedRelatoriosRoute
+  '/_authenticated/video': typeof AuthenticatedVideoRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/atletas' | '/evolucao' | '/relatorios' | '/video'
+  fullPaths:
+    '/' | '/atletas' | '/campo' | '/evolucao' | '/relatorios' | '/video'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/atletas' | '/evolucao' | '/relatorios' | '/video'
-  id: '__root__' | '/' | '/atletas' | '/evolucao' | '/relatorios' | '/video'
+  to: '/' | '/atletas' | '/campo' | '/evolucao' | '/relatorios' | '/video'
+  id:
+    | '__root__'
+    | '/'
+    | '/_authenticated/atletas'
+    | '/_authenticated/campo'
+    | '/_authenticated/evolucao'
+    | '/_authenticated/relatorios'
+    | '/_authenticated/video'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  AtletasRoute: typeof AtletasRoute
-  EvolucaoRoute: typeof EvolucaoRoute
-  RelatoriosRoute: typeof RelatoriosRoute
-  VideoRoute: typeof VideoRoute
+  AuthenticatedAtletasRoute: typeof AuthenticatedAtletasRoute
+  AuthenticatedCampoRoute: typeof AuthenticatedCampoRoute
+  AuthenticatedEvolucaoRoute: typeof AuthenticatedEvolucaoRoute
+  AuthenticatedRelatoriosRoute: typeof AuthenticatedRelatoriosRoute
+  AuthenticatedVideoRoute: typeof AuthenticatedVideoRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -88,32 +106,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/atletas': {
-      id: '/atletas'
+    '/_authenticated/atletas': {
+      id: '/_authenticated/atletas'
       path: '/atletas'
       fullPath: '/atletas'
-      preLoaderRoute: typeof AtletasRouteImport
+      preLoaderRoute: typeof AuthenticatedAtletasRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/evolucao': {
-      id: '/evolucao'
+    '/_authenticated/campo': {
+      id: '/_authenticated/campo'
+      path: '/campo'
+      fullPath: '/campo'
+      preLoaderRoute: typeof AuthenticatedCampoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_authenticated/evolucao': {
+      id: '/_authenticated/evolucao'
       path: '/evolucao'
       fullPath: '/evolucao'
-      preLoaderRoute: typeof EvolucaoRouteImport
+      preLoaderRoute: typeof AuthenticatedEvolucaoRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/relatorios': {
-      id: '/relatorios'
+    '/_authenticated/relatorios': {
+      id: '/_authenticated/relatorios'
       path: '/relatorios'
       fullPath: '/relatorios'
-      preLoaderRoute: typeof RelatoriosRouteImport
+      preLoaderRoute: typeof AuthenticatedRelatoriosRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/video': {
-      id: '/video'
+    '/_authenticated/video': {
+      id: '/_authenticated/video'
       path: '/video'
       fullPath: '/video'
-      preLoaderRoute: typeof VideoRouteImport
+      preLoaderRoute: typeof AuthenticatedVideoRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -121,10 +146,11 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  AtletasRoute: AtletasRoute,
-  EvolucaoRoute: EvolucaoRoute,
-  RelatoriosRoute: RelatoriosRoute,
-  VideoRoute: VideoRoute,
+  AuthenticatedAtletasRoute: AuthenticatedAtletasRoute,
+  AuthenticatedCampoRoute: AuthenticatedCampoRoute,
+  AuthenticatedEvolucaoRoute: AuthenticatedEvolucaoRoute,
+  AuthenticatedRelatoriosRoute: AuthenticatedRelatoriosRoute,
+  AuthenticatedVideoRoute: AuthenticatedVideoRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
