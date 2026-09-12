@@ -16,8 +16,10 @@ import { Route as RedefinirSenhaRouteImport } from './routes/redefinir-senha'
 import { Route as AuthenticatedAtletasRouteImport } from './routes/_authenticated/atletas'
 import { Route as AuthenticatedCampoRouteImport } from './routes/_authenticated/campo'
 import { Route as AuthenticatedEvolucaoRouteImport } from './routes/_authenticated/evolucao'
+import { Route as AuthenticatedMeusVideosRouteImport } from './routes/_authenticated/meus-videos'
 import { Route as AuthenticatedRelatoriosRouteImport } from './routes/_authenticated/relatorios'
 import { Route as AuthenticatedVideoRouteImport } from './routes/_authenticated/video'
+import { Route as PerfilUsernameRouteImport } from './routes/perfil.$username'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -53,6 +55,11 @@ const AuthenticatedEvolucaoRoute = AuthenticatedEvolucaoRouteImport.update({
   path: '/evolucao',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
+const AuthenticatedMeusVideosRoute = AuthenticatedMeusVideosRouteImport.update({
+  id: '/meus-videos',
+  path: '/meus-videos',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
 const AuthenticatedRelatoriosRoute = AuthenticatedRelatoriosRouteImport.update({
   id: '/relatorios',
   path: '/relatorios',
@@ -63,6 +70,11 @@ const AuthenticatedVideoRoute = AuthenticatedVideoRouteImport.update({
   path: '/video',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
+const PerfilUsernameRoute = PerfilUsernameRouteImport.update({
+  id: '/perfil/$username',
+  path: '/perfil/$username',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -71,8 +83,10 @@ export interface FileRoutesByFullPath {
   '/atletas': typeof AuthenticatedAtletasRoute
   '/campo': typeof AuthenticatedCampoRoute
   '/evolucao': typeof AuthenticatedEvolucaoRoute
+  '/meus-videos': typeof AuthenticatedMeusVideosRoute
   '/relatorios': typeof AuthenticatedRelatoriosRoute
   '/video': typeof AuthenticatedVideoRoute
+  '/perfil/$username': typeof PerfilUsernameRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -81,8 +95,10 @@ export interface FileRoutesByTo {
   '/atletas': typeof AuthenticatedAtletasRoute
   '/campo': typeof AuthenticatedCampoRoute
   '/evolucao': typeof AuthenticatedEvolucaoRoute
+  '/meus-videos': typeof AuthenticatedMeusVideosRoute
   '/relatorios': typeof AuthenticatedRelatoriosRoute
   '/video': typeof AuthenticatedVideoRoute
+  '/perfil/$username': typeof PerfilUsernameRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -93,8 +109,10 @@ export interface FileRoutesById {
   '/_authenticated/atletas': typeof AuthenticatedAtletasRoute
   '/_authenticated/campo': typeof AuthenticatedCampoRoute
   '/_authenticated/evolucao': typeof AuthenticatedEvolucaoRoute
+  '/_authenticated/meus-videos': typeof AuthenticatedMeusVideosRoute
   '/_authenticated/relatorios': typeof AuthenticatedRelatoriosRoute
   '/_authenticated/video': typeof AuthenticatedVideoRoute
+  '/perfil/$username': typeof PerfilUsernameRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -105,8 +123,10 @@ export interface FileRouteTypes {
     | '/atletas'
     | '/campo'
     | '/evolucao'
+    | '/meus-videos'
     | '/relatorios'
     | '/video'
+    | '/perfil/$username'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -115,8 +135,10 @@ export interface FileRouteTypes {
     | '/atletas'
     | '/campo'
     | '/evolucao'
+    | '/meus-videos'
     | '/relatorios'
     | '/video'
+    | '/perfil/$username'
   id:
     | '__root__'
     | '/'
@@ -126,8 +148,10 @@ export interface FileRouteTypes {
     | '/_authenticated/atletas'
     | '/_authenticated/campo'
     | '/_authenticated/evolucao'
+    | '/_authenticated/meus-videos'
     | '/_authenticated/relatorios'
     | '/_authenticated/video'
+    | '/perfil/$username'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -135,6 +159,7 @@ export interface RootRouteChildren {
   AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
   AuthRoute: typeof AuthRoute
   RedefinirSenhaRoute: typeof RedefinirSenhaRoute
+  PerfilUsernameRoute: typeof PerfilUsernameRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -188,6 +213,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedEvolucaoRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/meus-videos': {
+      id: '/_authenticated/meus-videos'
+      path: '/meus-videos'
+      fullPath: '/meus-videos'
+      preLoaderRoute: typeof AuthenticatedMeusVideosRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/_authenticated/relatorios': {
       id: '/_authenticated/relatorios'
       path: '/relatorios'
@@ -202,6 +234,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedVideoRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/perfil/$username': {
+      id: '/perfil/$username'
+      path: '/perfil/$username'
+      fullPath: '/perfil/$username'
+      preLoaderRoute: typeof PerfilUsernameRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -209,6 +248,7 @@ interface AuthenticatedRouteRouteChildren {
   AuthenticatedAtletasRoute: typeof AuthenticatedAtletasRoute
   AuthenticatedCampoRoute: typeof AuthenticatedCampoRoute
   AuthenticatedEvolucaoRoute: typeof AuthenticatedEvolucaoRoute
+  AuthenticatedMeusVideosRoute: typeof AuthenticatedMeusVideosRoute
   AuthenticatedRelatoriosRoute: typeof AuthenticatedRelatoriosRoute
   AuthenticatedVideoRoute: typeof AuthenticatedVideoRoute
 }
@@ -217,6 +257,7 @@ const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedAtletasRoute: AuthenticatedAtletasRoute,
   AuthenticatedCampoRoute: AuthenticatedCampoRoute,
   AuthenticatedEvolucaoRoute: AuthenticatedEvolucaoRoute,
+  AuthenticatedMeusVideosRoute: AuthenticatedMeusVideosRoute,
   AuthenticatedRelatoriosRoute: AuthenticatedRelatoriosRoute,
   AuthenticatedVideoRoute: AuthenticatedVideoRoute,
 }
@@ -229,6 +270,7 @@ const rootRouteChildren: RootRouteChildren = {
   AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
   AuthRoute: AuthRoute,
   RedefinirSenhaRoute: RedefinirSenhaRoute,
+  PerfilUsernameRoute: PerfilUsernameRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
