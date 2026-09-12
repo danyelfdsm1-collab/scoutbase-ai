@@ -144,25 +144,23 @@ function AuthScreen() {
       return;
     }
 
-    const patch: Record<string, unknown> = {
+    const isAthlete = accountType === "atleta";
+    const patch = {
       full_name: fullName.trim() || orgName.trim(),
       phone: phone.trim() || null,
       org_name: accountType === "clube" ? orgName.trim() || null : null,
       city: city.trim() || null,
       state: uf.trim().toUpperCase() || null,
+      birth_date: isAthlete ? birthDate || null : null,
+      position_primary: isAthlete ? pos1 || null : null,
+      position_secondary: isAthlete ? pos2 || null : null,
+      height_cm: isAthlete && height ? Number(height) : null,
+      weight_kg: isAthlete && weight ? Number(weight) : null,
+      foot: isAthlete ? foot || null : null,
+      category: isAthlete ? category || null : null,
     };
-    if (accountType === "atleta") {
-      Object.assign(patch, {
-        birth_date: birthDate || null,
-        position_primary: pos1 || null,
-        position_secondary: pos2 || null,
-        height_cm: height ? Number(height) : null,
-        weight_kg: weight ? Number(weight) : null,
-        foot: foot || null,
-        category: category || null,
-      });
-    }
     await supabase.from("profiles").update(patch).eq("id", data.user.id);
+
     setBusy(false);
     toast.success("Perfil criado! Bem-vindo ao Scout Base.");
     navigate({ to: "/campo", replace: true });
